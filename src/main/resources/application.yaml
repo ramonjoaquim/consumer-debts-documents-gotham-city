@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: consumer-debts-documents-gotham-city
+  datasource:
+    url: jdbc:postgresql://localhost:5433/gothamcity_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+  amqp:
+    deserialization:
+      trust-all: true
+
+custom:
+  rabbitmq:
+    queues:
+      - gerar-documento-divida
+      - gerar-documento-divida-concluido
+      - assinar-documento
+      - assinar-documento-concluido
+      - executar-script
+      - executar-script-concluido
